@@ -8,9 +8,7 @@ from PIL import ImageTk, Image
 from tkinter import messagebox
 import json
 
-
 LARGE_FONT= ("Verdana", 20)
-
 
 class SeaofBTCapp(tk.Tk):
 
@@ -40,9 +38,6 @@ class SeaofBTCapp(tk.Tk):
 
         frame = self.frames[cont]
         frame.tkraise()
-
-
-
         
 class StartPage(tk.Frame):
 
@@ -54,6 +49,9 @@ class StartPage(tk.Frame):
         button = tk.Button(self, text="Get Started",
                             command=lambda: controller.show_frame(PageOne))
         button.pack()
+
+        
+#Creating First Page
 
 class PageOne(tk.Frame):
 
@@ -71,6 +69,8 @@ class PageOne(tk.Frame):
         b6 = tk.Button(self, text="  Select a JSON file  ",command=self.browsefg)
         b6.grid(row=8, column=2, padx=10, pady=10)
 
+    #Function to browse files    
+    
     def browsefunc(self):
 
         try:
@@ -113,7 +113,7 @@ class PageOne(tk.Frame):
         except:
             messagebox.showerror("Error", "No numeric data to plot")
 
-
+#Creating Second Page
 
 class PageTwo(tk.Frame):
 
@@ -127,13 +127,13 @@ class PageTwo(tk.Frame):
                             command=lambda: controller.show_frame(PageOne))
         button1.pack()
 
+#Closing Message
 
 def on_closing():
     if messagebox.askokcancel("Quit", "This Application was created by Gaurav Sekhri \n\n Hope you liked it !"):
         app.destroy()
 
         
-
 app = SeaofBTCapp()
 
 img = ImageTk.PhotoImage(Image.open("GP_icon.png"))
